@@ -25,11 +25,9 @@
 	<h4 v-if="todos.length === 0">Empty list.</h4>
 </template>
 
-<script>
+<script setup>
 	import { ref } from 'vue';
-	export default {
-		name: 'App',
-		setup () {
+
 			const newTodo = ref('');
 			const defaultData = [{
 				done: false,
@@ -62,17 +60,6 @@
 				const storageData = JSON.stringify(todos.value);
 				localStorage.setItem('todos', storageData);
 			}
-
-			return {
-				todos,
-				newTodo,
-				addTodo,
-				doneTodo,
-				removeTodo,
-				saveData
-			}
-		}
-	}
 </script>
 
 <style lang="scss">
